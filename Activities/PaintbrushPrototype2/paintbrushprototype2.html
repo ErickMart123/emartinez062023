@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Variables</title>
+    <title>Paintbrush Prototype 2</title>
     <style>
         :root
         {
@@ -50,7 +50,12 @@
                     //alert(mouse.x+' | '+ mouse.y);
                     draw();
                    });
-            
+                   // Add an event listener to canvas
+                   canvas.addEventListener('mousemove',function(e){
+                    mouse.x =e.x;
+                    mouse.y =e.y;
+                    draw();
+                   })
                    // Set default canvas size
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -72,11 +77,11 @@ draw();
         //Draw circle
         ctx.beginPath();
         ctx.fillStyle="blue";
-        ctx.strokeStyle='black';
-        ctx.lineWidth= 2;
+        //ctx.strokeStyle='black';
+        //ctx.lineWidth= 2;
         ctx.arc(mouse.x,mouse.y,30,0,Math.PI * 2);
         ctx.fill();
-        ctx.stroke();
+        //ctx.stroke();
     }
         </script>
 </body>

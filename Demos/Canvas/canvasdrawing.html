@@ -1,36 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas Drawing</title>
-    <style>
-      * {
-        margin: 0;
-        padding:0;
-        box-sizing: border-box;    
-      }
-      body{
-        margin-top: 50px;
-      }
-      h1{
-        text-align: center;
-      }
-      #canvas
-      {
-        margin:auto;
-        display: block;
-        border: 1px solid silver;
-      }
-      
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=L, initial-scale=1.0" />
+<title>Canvas Drawing</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+margin-top: 50px;
+}
+h1 {
+text-align: center;
+}
+#canvas {
+margin: auto;
+display: block;
+border: 3px solid silver;
+}
+</style>
 </head>
 <body>
-    <h1>Canvas Drawing</h1>
-    <canvas id="canvas"width="1000px" height="500px"></canvas>
-    <script>
-        const canvas = window.document.querySelector('#canvas');
-        const ctx= canvas.getContext('2d');
-    </script>
+<h1>Canvas Drawing</h1>
+<canvas id="canvas" width="1000px" height="500px"></canvas>
+
+<script>
+// Create variables
+const canvas = window.document.querySelector('#canvas');
+const ctx = canvas.getContext('2d');
+//canvas
+ctx.fillStyle = "lightblue";
+ctx.fillRect(0, 0, 1000, 500);
+ctx.beginPath(); 
+ctx.fillStyle = "white";
+ctx.fillRect(0, 380, 1000, 500);
+// Body
+ctx.beginPath();
+ctx.fillStyle="white";
+ctx.strokeStyle='black';
+ctx.lineWidth= 10;
+ctx.closePath()
+ctx.arc(500,315,80,0,Math.PI * 2);
+ctx.fill();
+
+// Torso
+ctx.beginPath()
+ctx.fillStyle="white";
+ctx.strokeStyle='black';
+ctx.lineWidth= 10;
+ctx.closePath()
+ctx.arc(500,215,65,0,Math.PI * 2);
+ctx.fill();
+// Head
+ctx.beginPath();
+ctx.fillStyle="white";
+ctx.strokeStyle='black';
+ctx.lineWidth= 10;
+ctx.arc(500,115,45,0,Math.PI * 2);
+ctx.closePath()
+ctx.fill();
+// Left eye
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.lineWidth= 10;
+ctx.arc(480,115,5,0,Math.PI * 2);
+ctx.fill();
+// Right eye
+// Left eye
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.lineWidth= 10;
+ctx.arc(520,115,5,0,Math.PI * 2);
+ctx.fill();
+// Draw mouth
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.lineWidth= 10;
+ctx.arc(500,140,10,0,Math.PI * 1);
+ctx.fill();
+// Draw nose
+ctx.beginPath();
+ctx.fillStyle="orange";
+ctx.lineWidth= 2;
+ctx.moveTo(500,115);
+ctx.lineTo(485,130);
+ctx.lineTo(550,135);
+ctx.closePath();
+ctx.stroke();
+ctx.fill();
+// Button
+ctx.beginPath()
+ctx.fillStyle="black";
+ctx.strokeStyle='black';
+ctx.lineWidth= 10;
+ctx.closePath()
+ctx.arc(500,215,7,0,Math.PI * 2);
+ctx.fill();
+// Button 2
+ctx.beginPath()
+ctx.fillStyle="black";
+ctx.strokeStyle='black';
+ctx.lineWidth= 10;
+ctx.closePath()
+ctx.arc(500,260,7,0,Math.PI * 2);
+ctx.fill();
+// Button 3 
+ctx.beginPath()
+ctx.fillStyle="black";
+ctx.strokeStyle='black';
+ctx.lineWidth= 10;
+ctx.closePath()
+ctx.arc(500,320,7,0,Math.PI * 2);
+ctx.fill();
+// Left arm
+ctx.beginPath();
+ctx.lineWidth= 2;
+ctx.moveTo(440,190);
+ctx.lineTo(350,140);
+ctx.closePath();
+ctx.stroke();
+ctx.fill();
+// Right Arm
+ctx.beginPath();
+ctx.lineWidth = 2;
+ctx.moveTo(560, 190); 
+ctx.lineTo(630, 140); 
+ctx.closePath();
+ctx.stroke();
+ctx.fill();
+</script>
 </body>
 </html>
