@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Drawing 2</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin-top: 50px;
+      }
+      h1 {
+        text-align: center;
+      }
+      #canvas {
+        margin: auto;
+        display: block;
+        border: 1px solid silver;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Canvas Drawing 2 - pyramid</h1>
+    <canvas id="canvas" width="1000px" height="500px"></canvas>
+
+    <script>
+      // Create variables
+      const canvas = window.document.querySelector('#canvas');
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle=  'lightblue';
+      ctx.fillRect(0,0,1000,500);
+
+      ctx.beginPath();//Sand
+      ctx.fillStyle= '#C2B280'
+      ctx.fillRect(0,380,1000,500);
+      // Left Cloud
+        ctx.beginPath();
+            ctx.fillStyle = 'white';
+            ctx.arc(200, 100, 50, 0, Math.PI * 2);
+            ctx.fill(); // Color it in
+
+        ctx.beginPath();
+            ctx.fillStyle = 'white';
+            ctx.arc(280, 80, 80, 0, Math.PI *2);
+            ctx.fill(); // Color it in
+
+        ctx.beginPath();
+            ctx.fillStyle = 'white';
+            ctx.arc(350, 100, 50, 0, Math.PI * 2);
+            ctx.fill(); // Color it in
+
+
+            // Right Cloud
+        ctx.beginPath();
+            ctx.fillStyle = 'white';
+            ctx.arc(700, 150, 50, 0, Math.PI * 2);
+            ctx.fill(); // Color it in
+
+            ctx.beginPath();
+            ctx.fillStyle = 'white';
+            ctx.arc(780, 130, 80, 0, Math.PI *2);
+            ctx.fill(); // Color it in
+
+        ctx.beginPath();
+            ctx.fillStyle = 'white';
+            ctx.arc(850, 150, 50, 0, Math.PI * 2);
+            ctx.fill(); // Color it in
+
+            // Draw pyramid
+            ctx.beginPath();
+            ctx.moveTo(450,200);
+            ctx.lineTo(100,500);
+            ctx.lineTo(800,500);
+            ctx.closePath();
+            ctx.fillStyle=  "tan";
+            ctx.fill();
+            ctx.stroke();
+    </script>
+  </body>
+</html>
