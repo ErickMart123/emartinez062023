@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paintbrush Version 1</title>
+    <title>Paintbrush Version 4</title>
     <style>
         *
         {
@@ -30,6 +30,20 @@
             padding: 1rem;
             bottom: 0;
         }
+        #eraser
+        {
+            background-image: url(Images/eraser.jpg);
+            background-position-y: -10px ;
+            background-repeat: none;
+            background-size:cover;
+            background-size: 80px;
+            border: 2px solid black;
+            height: 60px;
+            position: fixed;
+            width: 5%;
+            padding: 1rem;
+            bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -39,11 +53,14 @@
 
     <section id="menu">
         <input type="color" id="colorpicker" value="#FF0000">
-        <input type="range" id="rangepicker" min="2" max="100" value="15">
+        <input type="range" id="rangepicker" min="5" max="100" value="15">
+        <button id="eraser" onclick="addEventListener(brushColor = 'white');"></button><!---EAWFJAJWNJKNAJKND-->
     </section>
 
     <!-- Create canvas and assign values -->
     <script>
+
+        
         // Create JavaScript Variables
         let canvasColor = 'white';
         let brushColor = 'red';
@@ -52,9 +69,9 @@
 
         const canvas = window.document.querySelector('#canvas');
         const ctx = canvas.getContext('2d');
-
-        //Change line cap 
-        ctx.linecap='round';
+        ctx.strokeStyle = brushColor;
+        ctx.lineWidth = brushSize;
+        ctx.lineCap = 'round';
     
         // Colorpicker var
         const colorPicker = window.document.querySelector('#colorpicker');
@@ -87,9 +104,7 @@
         canvas.addEventListener('mousedown', function(e)
         {
             painting = true;
-            // Begin Line
-            ctx.moveTo(mouse.x,mouse.y);
-
+            ctx.moveTo(mouse.x, mouse.y );
             draw();
         });
         canvas.addEventListener('mousemove', function(e)
@@ -109,12 +124,13 @@
             {
                 if (painting == true)
                 {
-                    //ctx.beginPath();
+                    // ctx.beginPath();
                 ctx.strokeStyle = brushColor;
                 ctx.lineJoin = 'round';
                 ctx.lineWidth = brushSize;
-                //ctx.arc(mouse.x, mouse.y, brushSize, 0, Math.PI * 2);
-                ctx.lineTo(mouse.x,mouse.y);
+                // ctx.arc(mouse.x, mouse.y, brushSize, 0, Math.PI * 2);
+                // ctx.fill();
+                ctx.lineTo(mouse.x, mouse.y);
                 ctx.stroke();
                 }
             }
